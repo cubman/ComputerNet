@@ -1,0 +1,16 @@
+Клиент:
+любое число(но определены пока 1 2 3) + "\r\n"
+
+telnet localhost 28563
+
+
+
+Сервер:
+ответ на запрос клиента+"\r\n"
+
+1) g++ -std=c++11 ./serverVlad.cpp -o ./serverVlad -pthread - C++
+2) ./serverVlad
+
+1) nodejs ./serverVlad.js						- для JavaScript
+
+

@@ -1,0 +1,21 @@
+javaScript :
+ nodejs server.js
+java :
+ compile - javac -cp ".:netty-all-4.1.0.CR3.jar" Server.java
+ execute - java -cp ".:netty-all-4.1.0.CR3.jar" Server
+
+ -----------------------------------
+
+client :
+ telnet localhost 28563
+
+ -----------------------------------
+
+ PROTOCOL
+
+ client - unix comand\r\n
+ server - result_1\n
+ 		  result_2\n
+ 		  ....
+ 		  result_n\n
+ 		  		\r\n 

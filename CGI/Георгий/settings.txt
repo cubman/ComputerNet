@@ -1,0 +1,3 @@
+columnCount = 2
+iconWidth = 120
+iconHeight = 100
