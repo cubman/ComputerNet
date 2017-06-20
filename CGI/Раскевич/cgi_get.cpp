@@ -20,6 +20,22 @@ void page_not_found() {
         "Page not found!" << "</h1>";
 }
 
+string urlDecode(string &SRC) {
+    string ret;
+    char ch;
+    int i, ii;
+    for (i=0; i<SRC.length(); i++) {
+        if (int(SRC[i])==37) {
+            sscanf(SRC.substr(i+1,2).c_str(), "%x", &ii);
+            ch=static_cast<char>(ii);
+            ret+=ch;
+            i=i+2;
+        } else {
+            ret+=SRC[i];
+        }
+    }
+    return (ret);
+}
 
 void edit_page() {
 	ifstream ifs(f_name);
@@ -56,7 +72,8 @@ void save_page() {
 }
 
 void finish_page(string text) {
-	boost::replace_all(text, "+", " ");
+	text = urlDecode(text);
+	/*boost::replace_all(text, "+", " ");
 	boost::replace_all(text, "%2B", "+");
 	boost::replace_all(text, "%0D%0A", "\n");
 	boost::replace_all(text, "%21", "!");
@@ -81,7 +98,7 @@ void finish_page(string text) {
 	boost::replace_all(text, "%7D", "}");
 	boost::replace_all(text, "%5B", "[");
 	boost::replace_all(text, "%5D", "]");
-	boost::replace_all(text, "%3D", "=");
+	boost::replace_all(text, "%3D", "=");*/
 
 
 	ofstream ofs(f_name);
